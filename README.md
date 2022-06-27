@@ -47,6 +47,14 @@ And if you wish to automatically start a server to preview your build, you can r
 $ yarn build && yarn preview
 ```
 
+### Removing the example scene
+
+To demonstrate asset loading, this project includes an example scene. To remove it and start with a blank project, run:
+
+```bash
+$ yarn remove-example
+```
+
 ### Serving Assets
 
 If you are using an asset type such as Wavefront OBJ files that come with self-referencing MTL material definitions, you will need to store the assets in the `/public` directory. 
