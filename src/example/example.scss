@@ -1,0 +1,12 @@
+#canvas {
+  background-image: url('/space_dog/background.png');
+  background-position-y: bottom;
+  background-size: cover;
+}
+
+body {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #121212;
+}

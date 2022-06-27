@@ -1,0 +1,51 @@
+# Apple ModelI/O MTL File: space_dog.mtl
+
+newmtl mat0_dog
+	map_Kd mat0_dog-color.png
+	Kd 1 1 1
+	Ka 0 0 0
+	Ks 0 0 0
+	ao 0
+	subsurface 0
+	map_metallic mat0_dog-metallic.png
+	specularTint 0
+	map_roughness mat0_dog-roughness.png
+	anisotropicRotation 0
+	sheen 0.05
+	sheenTint 0
+	clearCoat 0
+	clearCoatGloss 0
+
+newmtl mat0_Collar
+	map_Kd mat0_Collar-color.png
+	Kd 1 1 1
+	Ka 0 0 0
+	Ks 0 0 0
+	ao 0
+	subsurface 0
+	map_metallic mat0_Collar-metallic.png
+	specularTint 0
+	map_roughness mat0_Collar-roughness.png
+	anisotropicRotation 0
+	sheen 0.05
+	sheenTint 0
+	clearCoat 0
+	clearCoatGloss 0
+
+newmtl mat0_helmet
+	map_Kd mat0_helmet-color.png
+	Kd 1 1 1
+	Ka 0 0 0
+	Ks 0 0 0
+    Ns 10.000
+	ao 0
+	subsurface 0
+	map_metallic mat0_helmet-metallic.png
+	specularTint 0
+	map_roughness mat0_helmet-roughness.png
+	anisotropicRotation 0
+	sheen 0.05
+	sheenTint 0
+	clearCoat 0
+	clearCoatGloss 0
+
