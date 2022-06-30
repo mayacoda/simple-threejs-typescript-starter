@@ -5,8 +5,6 @@ import { createLights } from './create-lights'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { calculateCanvasSize } from '../utils/calculate-canvas-size'
 import { animateCharacter, positionCharacter } from './transform-character'
-
-
 /**
  * Creates an example scene with a rotating character.
  */
@@ -75,4 +73,3 @@ animate()
     renderer.setSize(size.width, size.height)
   })
 }
-
