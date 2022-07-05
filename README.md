@@ -27,6 +27,8 @@ $ cd my-threejs-project
 $ yarn install
 ```
 
+> ✅ If you are on GitHub, create a new repository using this repository as a template by clicking the green **Use this template** button in the top right.
+
 ## Development
 
 The starter includes a pre-configured Vite server which you can use to run and develop your project. To start the development server, run the following command:
