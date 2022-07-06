@@ -5,10 +5,14 @@ import { createLights } from './create-lights'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { calculateCanvasSize } from '../utils/calculate-canvas-size'
 import { animateCharacter, positionCharacter } from './transform-character'
+
+import fragment from './glsl-import-example/main.frag';
+
 /**
  * Creates an example scene with a rotating character.
  */
 export const runExample = async () => {
+  console.log(fragment)
   // Canvas
   const canvas = document.querySelector<HTMLDivElement>('#canvas')!
 
