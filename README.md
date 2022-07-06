@@ -15,7 +15,7 @@ Especially good for rendering scenes which include custom models, textures, and 
 * [Node.js](https://nodejs.org)
 * [yarn](https://yarnpkg.com) OR [npm](https://www.npmjs.com)
 
-> 💡 It is recommended to use **yarn**, but using **npm** should also work. There is a small chance that package resolution will not be correct, however, so be cautious. Example commands use **yarn**.
+> 💡 This project uses **yarn@3.2.1** and **npm@8.1.2**. Other versions might lead to different package resolutions, proceed with caution. Example commands use **yarn**.
 
 ## Installation
 
@@ -78,3 +78,9 @@ mtlLoader.load('./space_dog/space_dog.mtl', (materials) => {
 ```
 
 It is possible to change the name of the directory using the [publicDir](https://vitejs.dev/config/#publicdir) option.
+
+### Shaders
+
+For loading shaders, Vite uses the [vite-plugin-glsl]( https://github.com/UstymUkhman/vite-plugin-glsl) plugin. Unlike other assets, they need to be inside the `/src/` directory in order to be recognized by TypeScript. In `src/types/glsl.d.ts`, TypeScript recognizes `*.glsl`, `*.vert`, and `*.frag` files as strings.
+
+`src/glsl-import-example` shows how multiple shaders can be imported and resolved using **vite-plugin-glsl**.
