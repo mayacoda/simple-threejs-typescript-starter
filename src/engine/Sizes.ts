@@ -1,8 +1,9 @@
 import { Engine } from './Engine'
+import { EventEmitter } from './utilities/EventEmitter'
 
 type Sizing = 'cover' | 'contain'
 
-export class Sizes {
+export class Sizes extends EventEmitter {
   public width!: number
   public height!: number
   public pixelRatio: number = Math.min(window.devicePixelRatio, 2)
@@ -11,11 +12,13 @@ export class Sizes {
   public sizing: Sizing = 'contain'
 
   constructor(private engine: Engine) {
+    super()
     this.setContainsSizing()
 
     window.addEventListener('resize', () => {
       this.resize()
       this.engine.resize()
+      this.emit('resize')
     })
   }
 

@@ -1,0 +1,27 @@
+.loader {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #fff;
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-weight: normal;
+
+  .loader-inner {
+    width: 500px;
+    max-width: 95%;
+  }
+
+  .progress-number {
+    text-align: center;
+  }
+
+  .progress-bar {
+    background-color: #fff;
+    transition: width 0.3s ease-in-out;
+
+    height: 5px;
+  }
+}
