@@ -1,5 +1,6 @@
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+import { EventEmitter } from './utilities/EventEmitter'
 
 export type Resource =
   | {
@@ -21,12 +22,21 @@ type Loaders = {
   cubeTexture: THREE.CubeTextureLoader
 }
 
-export class Resources {
-  private loadingManager = new THREE.LoadingManager()
+export class Resources extends EventEmitter {
+  private loadingManager = new THREE.LoadingManager(
+    () => {
+      this.emit('loaded')
+    },
+    // @ts-ignore
+    (url: string, item: number, total: number) => {
+      this.emit('progress', item / total)
+    }
+  )
   private loaders!: Loaders
   public items: Record<string, any> = {}
 
   constructor(private readonly resources: Resource[]) {
+    super()
     this.initLoaders()
     this.load()
   }
@@ -37,6 +47,14 @@ export class Resources {
       texture: new THREE.TextureLoader(this.loadingManager),
       cubeTexture: new THREE.CubeTextureLoader(this.loadingManager),
     }
+  }
+
+  getItem(name: string) {
+    let item = this.items[name]
+    if (!item) {
+      throw new Error(`Resource ${name} not found`)
+    }
+    return item
   }
 
   load() {

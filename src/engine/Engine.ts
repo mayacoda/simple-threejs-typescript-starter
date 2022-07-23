@@ -1,12 +1,13 @@
 import { RenderEngine } from './RenderEngine'
 import * as THREE from 'three'
 import { RenderLoop } from './RenderLoop'
-import { DebugUI } from './utilities/DebugUI'
+import { DebugUI } from './interface/DebugUI'
 import { Sizes } from './Sizes'
 import { Camera } from './Camera'
 import { Resource, Resources } from './Resources'
-import { GameEntity } from './GameEntity'
-import { InfoConfig, InfoUI } from './utilities/InfoUI'
+import { InfoConfig, InfoUI } from './interface/InfoUI'
+import { Experience, ExperienceConstructor } from './Experience'
+import { Loader } from './interface/Loader'
 
 export class Engine {
   public readonly camera!: Camera
@@ -18,7 +19,8 @@ export class Engine {
   public readonly sizes!: Sizes
   public readonly canvas!: HTMLCanvasElement
   public readonly resources!: Resources
-  public readonly experience!: GameEntity
+  public readonly experience!: Experience
+  private readonly loader!: Loader
 
   constructor({
     canvas,
@@ -28,7 +30,7 @@ export class Engine {
   }: {
     canvas: HTMLCanvasElement
     resources: Resource[]
-    experience: new (engine: Engine) => GameEntity
+    experience: ExperienceConstructor
     info?: InfoConfig
   }) {
     if (!canvas) {
@@ -45,6 +47,16 @@ export class Engine {
     this.infoUI = new InfoUI(info)
     this.renderEngine = new RenderEngine(this)
     this.experience = new experience(this)
+    this.loader = new Loader()
+
+    this.resources.on('loaded', () => {
+      this.experience.init()
+      this.loader.complete()
+    })
+
+    this.resources.on('progress', (progress: number) => {
+      this.loader.setProgress(progress)
+    })
   }
 
   update(delta: number) {
