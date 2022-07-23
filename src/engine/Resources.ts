@@ -30,6 +30,9 @@ export class Resources extends EventEmitter {
     // @ts-ignore
     (url: string, item: number, total: number) => {
       this.emit('progress', item / total)
+    },
+    (url: string) => {
+      console.error(`Failed to load ${url}`)
     }
   )
   private loaders!: Loaders
@@ -58,6 +61,12 @@ export class Resources extends EventEmitter {
   }
 
   load() {
+    if (this.resources.length === 0) {
+      setTimeout(() => {
+        this.emit('loaded')
+      })
+    }
+
     for (const resource of this.resources) {
       switch (resource.type) {
         case 'gltf':

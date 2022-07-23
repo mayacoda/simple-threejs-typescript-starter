@@ -10,7 +10,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "remove-example": "node ./scripts/remove-example.js"
+    "cleanup": "node ./scripts/cleanup.js"
   },
   "type": "module",
   "dependencies": {

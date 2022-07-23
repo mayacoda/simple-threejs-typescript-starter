@@ -1,10 +1,10 @@
-import { RenderEngine } from './RenderEngine'
 import * as THREE from 'three'
+import { RenderEngine } from './RenderEngine'
 import { RenderLoop } from './RenderLoop'
 import { DebugUI } from './interface/DebugUI'
 import { Sizes } from './Sizes'
 import { Camera } from './Camera'
-import { Resource, Resources } from './Resources'
+import { Resources } from './Resources'
 import { InfoConfig, InfoUI } from './interface/InfoUI'
 import { Experience, ExperienceConstructor } from './Experience'
 import { Loader } from './interface/Loader'
@@ -24,12 +24,10 @@ export class Engine {
 
   constructor({
     canvas,
-    resources,
     experience,
     info,
   }: {
     canvas: HTMLCanvasElement
-    resources: Resource[]
     experience: ExperienceConstructor
     info?: InfoConfig
   }) {
@@ -42,11 +40,11 @@ export class Engine {
     this.debug = new DebugUI()
     this.time = new RenderLoop(this)
     this.scene = new THREE.Scene()
-    this.resources = new Resources(resources)
     this.camera = new Camera(this)
     this.infoUI = new InfoUI(info)
     this.renderEngine = new RenderEngine(this)
     this.experience = new experience(this)
+    this.resources = new Resources(this.experience.resources)
     this.loader = new Loader()
 
     this.resources.on('loaded', () => {

@@ -27,8 +27,6 @@ export class Sizes extends EventEmitter {
     this.height = window.innerHeight
 
     this.aspectRatio = this.width / this.height
-
-    console.log(this.width, this.height, this.aspectRatio)
   }
 
   public setCoverSizing() {
