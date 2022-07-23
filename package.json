@@ -10,7 +10,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "cleanup": "node ./scripts/cleanup.js"
+    "cleanup": "node ./scripts/cleanup.js",
+    "prepare": "husky install"
   },
   "type": "module",
   "dependencies": {
@@ -19,11 +20,16 @@
   },
   "devDependencies": {
     "@types/three": "^0.141.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
     "prettier": "2.7.1",
     "sass": "^1.52.3",
     "typescript": "^4.7.4",
     "vite": "^2.9.12",
     "vite-plugin-glsl": "^0.1.5"
   },
-  "packageManager": "yarn@3.2.1"
+  "packageManager": "yarn@3.2.1",
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  }
 }

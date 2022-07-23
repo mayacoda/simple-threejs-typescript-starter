@@ -2,7 +2,7 @@
 
 This scaffolding lets you easily get started with using Three.js and TypeScript.
 
-Especially good for rendering scenes which include custom models, textures, and materials.
+![example scene](./assets/docs/example.jpg)
 
 ## Features
 
@@ -99,10 +99,7 @@ export class Demo implements Experience {
   // called on each render
   update() {}
 }
-
 ```
-
-![example scene](./assets/docs/example.jpg)
 
 ### Removing the example scene
 
@@ -111,11 +108,12 @@ To demonstrate how to use the scaffolding, this project includes an example scen
 ```bash
 yarn cleanup
 ```
+
 This will also clear the content of this README.md file to just the basic commands for running the project.
 
 ### Serving Resources
 
-Resources loaded through THREE.js loaders need to go in the `/public` directory to avoid being compiled by Vite. This includes textures and models. 
+Resources loaded through THREE.js loaders need to go in the `/public` directory to avoid being compiled by Vite. This includes textures and models.
 
 Shaders are loaded using the [vite-plugin-glsl](https://github.com/UstymUkhman/vite-plugin-glsl) Vite plugin and can be located anywhere within the `/src` directory.
 

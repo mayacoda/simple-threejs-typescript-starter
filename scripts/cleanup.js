@@ -6,6 +6,8 @@ fs.rm('./src/demo', { recursive: true }, () => {})
 // remove public/space_dog directory
 fs.rm('./public/space_dog', { recursive: true }, () => {})
 
+fs.rm('./assets/docs', { recursive: true }, () => {})
+
 // rewrite src/main.ts to only include the style import
 fs.writeFileSync(
   './src/main.ts',
