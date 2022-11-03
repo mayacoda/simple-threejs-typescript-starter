@@ -11,7 +11,7 @@ export class Demo implements Experience {
 
   init() {
     const plane = new THREE.Mesh(
-      new THREE.PlaneBufferGeometry(10, 10),
+      new THREE.PlaneGeometry(10, 10),
       new THREE.MeshStandardMaterial({ color: 0xffffff })
     )
 
