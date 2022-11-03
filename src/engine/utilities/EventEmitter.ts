@@ -1,6 +1,10 @@
 export class EventEmitter {
   private listeners: { [key: string]: Function[] } = {}
 
+  protected listenerCount(event: string) {
+    return this.listeners[event] ? this.listeners[event].length : 0
+  }
+
   public on(event: string, listener: Function) {
     if (!this.listeners[event]) {
       this.listeners[event] = []
