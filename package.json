@@ -11,7 +11,8 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "cleanup": "node ./scripts/cleanup.js",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "preinstall": "git submodule update --init --recursive"
   },
   "type": "module",
   "dependencies": {

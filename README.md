@@ -2,7 +2,7 @@
 
 This scaffolding lets you easily get started with using Three.js and TypeScript.
 
-![example scene](./assets/docs/example.jpg)
+![example scene](./assets/docs/example.png)
 
 ## Features
 
@@ -12,6 +12,8 @@ This scaffolding lets you easily get started with using Three.js and TypeScript.
 - Debugging GUI and Stats
 - Social media and description overlay
 - Simple loading animation
+- Including shader chunks
+- [LYGIA Shader Library](https://lygia.xyz/) 
 
 ## Prerequisites
 
@@ -115,6 +117,22 @@ This will also clear the content of this README.md file to just the basic comman
 
 Resources loaded through THREE.js loaders need to go in the `/public` directory to avoid being compiled by Vite. This includes textures and models.
 
+More information about Vite's asset handling can be found [here](https://vitejs.dev/guide/assets.html).
+
+### Including Shader Chunks
+
 Shaders are loaded using the [vite-plugin-glsl](https://github.com/UstymUkhman/vite-plugin-glsl) Vite plugin and can be located anywhere within the `/src` directory.
 
-More information about Vite's asset handling can be found [here](https://vitejs.dev/guide/assets.html).
+The starter also includes the LYGIA Shader Library. To use it, import the shader chunks you need in your shader file.
+
+```glsl
+// in src/demo/shader.frag
+
+#include "../shaders/lygia/color/palette/water.glsl"
+
+varying vec2 vUv;
+
+void main() {
+    gl_FragColor = vec4(water(vUv.y), 1.0);
+}
+```
