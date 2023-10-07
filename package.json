@@ -16,17 +16,17 @@
   },
   "type": "module",
   "dependencies": {
-    "lil-gui": "^0.18.1",
-    "three": "^0.150.1"
+    "lil-gui": "^0.18.2",
+    "three": "^0.157.0"
   },
   "devDependencies": {
-    "@types/three": "^0.149.0",
+    "@types/three": "^0.156.0",
     "husky": "^8.0.3",
-    "lint-staged": "^13.2.0",
-    "prettier": "2.8.6",
-    "sass": "^1.59.3",
-    "typescript": "^5.0.2",
-    "vite": "^4.2.1",
+    "lint-staged": "^13.3.0",
+    "prettier": "2.8.8",
+    "sass": "^1.69.0",
+    "typescript": "^5.2.2",
+    "vite": "^4.4.11",
     "vite-plugin-glsl": "^1.1.2"
   },
   "packageManager": "yarn@3.2.1",

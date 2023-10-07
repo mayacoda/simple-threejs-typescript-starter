@@ -14,7 +14,7 @@ export class DebugUI {
 
     instance = this
 
-    this.stats = Stats()
+    this.stats = new Stats()
     document.body.appendChild(this.stats.dom)
 
     this.gui = new lilGui.GUI()
